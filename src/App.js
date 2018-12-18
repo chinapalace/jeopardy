@@ -13,7 +13,7 @@ class App extends Component {
     activeAnswer: "",
     playerAnswer: "",
     questions: [],
-    titles: [],
+    titles: ["...loading", "...loading", "...loading"],
     modal: false,
     message: "",
     correct: false,
@@ -30,9 +30,21 @@ class App extends Component {
 
     try {
       let [row0, row1, row2] = await Promise.all([
-        fetch(`http://jservice.io//api/category?id=${categories[0]}`),
-        fetch(`http://jservice.io//api/category?id=${categories[1]}`),
-        fetch(`http://jservice.io//api/category?id=${categories[2]}`)
+        fetch(
+          `https://cors-anywhere.herokuapp.com/http://jservice.io//api/category?id=${
+            categories[0]
+          }`
+        ),
+        fetch(
+          `https://cors-anywhere.herokuapp.com/http://jservice.io//api/category?id=${
+            categories[1]
+          }`
+        ),
+        fetch(
+          `https://cors-anywhere.herokuapp.com/http://jservice.io//api/category?id=${
+            categories[2]
+          }`
+        )
       ]);
       row0 = await row0.json();
       row1 = await row1.json();
