@@ -27,6 +27,7 @@ export const Modal = props => {
         </div>
         <div className={props.wrong ? "wrong-show" : "wrong-hide"}>
           <span>InCorrect!</span>
+          <span> Answer: {props.answer}</span>
           <img src={wrong} alt="wrong" />
         </div>
       </div>
